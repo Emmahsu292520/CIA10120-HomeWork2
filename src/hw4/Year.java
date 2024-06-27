@@ -14,7 +14,13 @@ public class Year {
 	(提示3:擋下錯誤輸入:例如月份輸入為2,則日期不該超過29)*/
 	public static void main(String[] args) {
 		
+		
+		int[] date = new int[3];
 		Scanner sc = new Scanner(System.in);
+		for(int i = 0; i < date.length; i++) {
+			   
+		}
+		
 	}
 	
 	

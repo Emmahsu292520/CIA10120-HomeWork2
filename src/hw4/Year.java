@@ -15,12 +15,35 @@ public class Year {
 	public static void main(String[] args) {
 		
 		
+		int[] monthDay = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31} ;
+		
+		System.out.println("輸入三個數字分別代表西元yyyy年、mm月、dd日");
+		
 		int[] date = new int[3];
 		Scanner sc = new Scanner(System.in);
 		for(int i = 0; i < date.length; i++) {
-			   
+			 date[i]= sc.nextInt();
+		}
+ 		
+		if ((date[0] % 4 == 0 && date[0] % 100 != 0) || (date[0] % 400 == 0)) {
+		   monthDay[1] = 29;// 閏年
 		}
 		
+		int sum = 0;
+		int total = 0;
+ 		if(date[0] < 0) {
+ 			System.out.println("yyyy年有錯，請重新輸入");
+ 		}else if(date[1] < 0 || date[1] > 12) {
+ 			System.out.println("mm月有錯，請重新輸入");
+ 		}else if (date[2] < 1 || date[2] > monthDay[date[1] - 1]) { // 檢查日期
+            System.out.println("dd日有錯，請重新輸入");	
+ 		}else {
+ 			for(int x = 0; x <= (date[1]-2) ; x++) {
+ 				sum+= monthDay[x];
+ 			}
+ 			total = sum + date[2];
+ 		}
+		System.out.println("輸入的日期為該年第"+total+"天");
 	}
 	
 	
